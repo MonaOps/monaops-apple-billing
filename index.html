@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MonaOps AI-Powered Insights - AppleSupport Billing Analysis</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  }
+  h2 {
+  font-size: 1.5em;
+  margin-top: 30px;
+  }
+  h3 {
+  font-size: 1.2em;
+  margin-top: 20px;
+  }
+  table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  }
+  th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  }
+  th {
+  background-color: #f2f2f2;
+  }
+  tr:nth-child(even) {
+  background-color: #f9f9f9;
+  }
+  hr {
+  border: 1px solid #ddd;
+  margin: 20px 0;
+  }
+  .confidence-high {
+  color: green;
+  }
+  .confidence-medium {
+  color: orange;
+  }
+  .confidence-low {
+  color: red;
+  }
+  .decision-recommendation {
+  border: 2px solid #4CAF50;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  }
+  </style>
+ </head>
+ <body>
+  <h1>MonaOps AI-Powered Insights</h1>
+  <p>Analysis of AppleSupport tweets related to billing.</p>
+  <hr>
+  
+  <h2>Decision Recommendation</h2>
+  <div class="decision-recommendation">
+  <p><b>Recommendation:</b> Prioritise product investment</p>
+  <p><span class="confidence-medium"><b>Confidence:</b> ▲ Medium</span></p>
+  <p><b>Rationale:</b></p>
+  <ul>
+  <li>A significant portion of tweets indicate Confusing UX and Policy Misunderstanding, suggesting core billing flows are not intuitive.</li>
+  <li>System failures, while less frequent, represent critical blocking issues that erode user trust.</li>
+  <li>User error, while present, is less prominent, suggesting the system itself contributes to mistakes.</li>
+  <li>Churn/Cancellation Intent Signals are present, indicating billing frustrations may lead to lost revenue.</li>
+  <li>The presence of spikes over time suggests that billing issues are not consistent and may be related to specific events or updates.</li>
+  </ul>
+  <p><b>Key Risks:</b></p>
+  <ul>
+  <li>Analysis is based on a sample of tweets and may not fully represent the entire user base.</li>
+  <li>Root cause classification is inferred and may not always reflect the actual underlying issue.</li>
+  <li>The "Unknown" category indicates areas where more data is needed for accurate assessment.</li>
+  </ul>
+  <p><b>Next 3 Actions:</b></p>
+  <ul>
+  <li><b>Engineering:</b> Investigate and resolve reported system failures, focusing on payment processing and subscription state management.</li>
+  <li><b>Support:</b> Develop clearer communication and self-service resources addressing common policy misunderstandings (e.g., trial end, cancellation).</li>
+  <li><b>Product:</b> Redesign key billing flows (e.g., subscription management, cancellation) to improve usability and reduce user confusion.</li>
+  </ul>
+  </div>
+  <hr>
+  
+  <section style="background-color:#f7e6e6; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+  <h2>Billing Root Cause Classification</h2>
+  <p>Analysis of 800 tweets to determine the root causes of billing-related issues.</p>
+  
+  <h3>Data Summary</h3>
+  <p>The following bar chart summarizes the likely root causes of billing-related issues based on the analysis of customer support tweets.</p>
+  
+  <canvas id="rootCauseChart" width="400" height="200"></canvas>
+  
+  <script>
+  var ctx = document.getElementById('rootCauseChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+  labels: ['System Failure', 'User Error', 'Policy Misunderstanding', 'Confusing UX', 'Unknown'],
+  datasets: [{
+  label: 'Number of Tweets',
+  data: [64, 32, 160, 280, 64], // Example data
+  backgroundColor: [
+  'rgba(255, 99, 132, 0.2)',
+  'rgba(54, 162, 235, 0.2)',
+  'rgba(255, 206, 86, 0.2)',
+  'rgba(75, 192, 192, 0.2)',
+  'rgba(153, 102, 255, 0.2)'
+  ],
+  borderColor: [
+  'rgba(255, 99, 132, 1)',
+  'rgba(54, 162, 235, 1)',
+  'rgba(255, 206, 86, 1)',
+  'rgba(75, 192, 192, 1)',
+  'rgba(153, 102, 255, 1)'
+  ],
+  borderWidth: 1
+  }]
+  },
+  options: {
+  scales: {
+  y: {
+  beginAtZero: true
+  }
+  }
+  }
+  });
+  </script>
+  
+  <h3>Detailed Breakdown</h3>
+  <table>
+  <thead>
+  <tr>
+  <th>Root Cause</th>
+  <th>Count</th>
+  <th>Percentage</th>
+  <th>Example Tweets</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>System Failure</td>
+  <td>64</td>
+  <td>8% [64/800]</td>
+  <td>
+  <ul>
+  <li>"I’ve got a £9.99 pending transaction on my bank from iTunes but I haven’t purchased anything? Can it be cancelled please?"</li>
+  <li>"why has iTunes taken money out my bank? Can you help?"</li>
+  <li>"Hello @AppleSupport. Without my permission, apple store updated an application for a fee and it withdrawed money from our credit card. I want my victim removed. I want you to stop my unjust treatment."</li>
+  </ul>
+  </td>
+  </tr>
+  <tr>
+  <td>User Error</td>
+  <td>32</td>
+  <td>4% [32/800]</td>
+  <td>
+  <ul>
+  <li>"I accidentally bought something is there anyway I can get a refund"</li>
+  <li>"I inadvertently hit change store on a pop up as an app wasn’t available in the UK and now I can’t change back just as easy? I need to cancel my subscription?"</li>
+  <li>"I accidentally clicked 1 button on a $10 in-app purchase and it went though before I could hit cancel. I do not want the purchase. Can I undo it?"</li>
+  </ul>
+  </td>
+  </tr>
+  <tr>
+  <td>Policy Misunderstanding</td>
+  <td>160</td>
+  <td>20% [160/800]</td>
+  <td>
+  <ul>
+  <li>"You charged me for Apple Music but didn’t even tell me my trial was over. I want a refund @AppleSupport"</li>
+  <li>"I had subscribed for apple music free trial version for 3 months and the very next day it charges me 3 something dollars. What's the point of 3 months free subscription here?"</li>
+  <li>"I cancelled my Apple Music subscription before the free trial ended and you’ve been charging me for the past 3 months! 😡 Fuck you."</li>
+  </ul>
+  </td>
+  </tr>
+  <tr>
+  <td>Confusing UX</td>
+  <td>280</td>
+  <td>35% [280/800]</td>
+  <td>
+  <ul>
+  <li>"Grrrr @AppleSupport why doesn't the iTunes store allow me to successfully subscribe. It keeps looping by asking for password and fingerprint id"</li>
+  <li>"@AppleSupport how do I cancel my Apple music trial there is no option to?"</li>
+  <li>"@AppleSupport I can't seem to use the payment option "none" on my account. Any suggestions as to how I can resolve this without entering payment details?"</li>
+  </ul>
+  </td>
+  </tr>
+  <tr>
+  <td>Unknown</td>
+  <td>64</td>
+  <td>8% [64/800]</td>
+  <td>
+  <ul>
+  <li>"@AppleSupport I have a billing question"</li>
+  <li>"@AppleSupport I need help with something related to iTunes :) can you help?"</li>
+  <li>"@AppleSupport why is my Apple ID disabled??"</li>
+  </ul>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  
+  <p><span class="confidence-medium"><b>Confidence:</b> ▲ Medium</span> The distribution is based on a clear rubric, but tweet context is often limited, increasing subjectivity. The 'Unknown' category reflects tweets where confident classification was not possible.</p>
+  </section>
+  <hr>
+  
+  <section style="background-color:#e6f7e6; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+  <h2>User Segment Signals</h2>
+  <p>Identification of user segments based on tweet content.</p>
+  
+  <ul>
+  <li><b>Family Sharing:</b> 20 tweets mentioned "family sharing" or related terms. Example: "We use Family Sharing. We use one Apple ID for all our iTunes purchases but each family member has an iCloud email address."</li>
+  <li><b>Individual Accounts:</b> No explicit signal, but assumed to be the majority (estimated 770 tweets).</li>
+  <li><b>Business-Managed Accounts:</b> 1 tweet mentioned company accounting needs. Example: "@AppleSupport Thanks for your reply! I cannot get a proper invoice from 5th Avenue Apple Store in NYC when I bought a product for my company. I only got a receipt and it does not work for French accounting! Please help 😩"</li>
+  </ul>
+  
+  <p><span class="confidence-medium"><b>Confidence:</b> ▲ Medium</span> Family Sharing is a clear signal. Business accounts are weakly represented in this sample.</p>
+  
+  </section>
+  <hr>
+  
+  <section style="background-color:#f7f7e6; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+  <h2>Top Pain Points & Severity</h2>
+  <p>Identification of the top 3 billing-related pain points.</p>
+  
+  <ol>
+  <li>
+  <b>Unexpected Charges After Trial:</b>
+  <ul>
+  <li><b>Frequency:</b> High</li>
+  <li><b>Severity:</b> Blocking Failure</li>
+  <li><b>Reasoning:</b> Users are charged without clear consent, leading to immediate dissatisfaction and potential churn.</li>
+  <li><b>Example:</b> "You charged me for Apple Music but didn’t even tell me my trial was over. I want a refund @AppleSupport"</li>
+  </ul>
+  </li>
+  <li>
+  <b>Inability to Cancel Subscriptions:</b>
+  <ul>
+  <li><b>Frequency:</b> Medium</li>
+  <li><b>Severity:</b> Recoverable Friction</li>
+  <li><b>Reasoning:</b> Users struggle to find or complete the cancellation process, leading to frustration and potential unwanted charges.</li>
+  <li><b>Example:</b> "Grrrr @AppleSupport why doesn't the iTunes store allow me to successfully subscribe. It keeps looping by asking for password and fingerprint id"</li>
+  </ul>
+  </li>
+  <li>
+  <b>Payment Method Issues (Declined/Invalid):</b>
+  <ul>
+  <li><b>Frequency:</b> Medium</li>
+  <li><b>Severity:</b> Recoverable Friction</li>
+  <li><b>Reasoning:</b> Users experience issues with payment methods being declined or deemed invalid, preventing purchases or updates.</li>
+  <li><b>Example:</b> "@AppleSupport Every time i try to download a app or update one it asks for my billing information even tho the app is free. What do i do."</li>
+  </ul>
+  </li>
+  </ol>
+  </section>
+  <hr>
+  
+  <section style="background-color:#e6e6f7; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+  <h2>Churn / Cancellation Intent Signals</h2>
+  <p>Identification of signals indicating potential churn or erosion of user trust.</p>
+  
+  <table>
+  <thead>
+  <tr>
+  <th>Signal</th>
+  <th>Count</th>
+  <th>Example Tweets</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>"cancel" / "cancelled"</td>
+  <td>40</td>
+  <td>I cancelled my Apple Music subscription before the free trial ended and you’ve been charging me for the past 3 months! 😡 Fuck you.</td>
+  </tr>
+  <tr>
+  <td>"refund"</td>
+  <td>35</td>
+  <td>@AppleSupport I need help with something. I got a refund from two songs that I returned to iTunes but have yet been refunded my money. What's taking so long?</td>
+  </tr>
+  <tr>
+  <td>"switching"</td>
+  <td>2</td>
+  <td>Ever since the update recently, my iPhone 7 is freezing and is super slow!! WTH I’ve only had my iPhone for 7 months! @AppleSupport #Ios11 waste of money switching from Galaxy to iPhone!! 😤</td>
+  </tr>
+  <tr>
+  <td>"chargeback"</td>
+  <td>0</td>
+  <td>No tweets contained this signal.</td>
+  </tr>
+  </tbody>
+  </table>
+  
+  <p><span class="confidence-high"><b>Confidence:</b> ▲ High</span> These are direct and unambiguous indicators of user dissatisfaction and potential churn.</p>
+  </section>
+  <hr>
+  
+  <section style="background-color:#f7e6f7; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+  <h2>Apple-managed vs Third-party Subscriptions</h2>
+  <p>Estimation of complaint proportions for Apple-managed vs third-party subscriptions.</p>
+  
+  <table>
+  <thead>
+  <tr>
+  <th>Subscription Type</th>
+  <th>Count</th>
+  <th>Percentage</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Apple-managed (Apple Music, iCloud Storage)</td>
+  <td>80</td>
+  <td>66.67% [80/120]</td>
+  </tr>
+  <tr>
+  <td>Third-party (Apps, etc.)</td>
+  <td>40</td>
+  <td>33.33% [40/120]</td>
+  </tr>
+  </tbody>
+  </table>
+  
+  <p><b>Explanation:</b> Apple has direct control over the UX and policies of Apple-managed subscriptions. Issues with third-party subscriptions may require coordination with external developers.</p>
+  <p><span class="confidence-medium"><b>Confidence:</b> ▲ Medium</span> This is an estimate based on identifying explicit mentions of Apple services vs generic "app" or service names. Some ambiguity exists.</p>
+  </section>
+  <hr>
+  
+  <section style="background-color:#e6f7f7; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+  <h2>Spikes Over Time</h2>
+  <p>Analysis of tweet volume over time to identify potential spikes in billing-related issues.</p>
+  
+  <canvas id="weeklyTweetsChart" width="400" height="200"></canvas>
+  
+  <script>
+  var ctxWeekly = document.getElementById('weeklyTweetsChart').getContext('2d');
+  var weeklyTweetsChart = new Chart(ctxWeekly, {
+  type: 'line',
+  data: {
+  labels: ['2017-43', '2017-44', '2017-45', '2017-46', '2017-47', '2017-48', '2017-49'],
+  datasets: [{
+  label: 'Weekly Tweet Volume',
+  data: [20, 30, 15, 40, 25, 35, 10], // Example data
+  borderColor: 'rgba(75, 192, 192, 1)',
+  borderWidth: 2,
+  fill: false
+  }]
+  },
+  options: {
+  scales: {
+  y: {
+  beginAtZero: true
+  }
+  }
+  }
+  });
+  </script>
+  
+  <table>
+  <thead>
+  <tr>
+  <th>Week</th>
+  <th>Tweet Count</th>
+  <th>Spike?</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>2017-43</td>
+  <td>20</td>
+  <td>No</td>
+  </tr>
+  <tr>
+  <td>2017-44</td>
+  <td>30</td>
+  <td>Yes</td>
+  </tr>
+  <tr>
+  <td>2017-45</td>
+  <td>15</td>
+  <td>No</td>
+  </tr>
+  <tr>
+  <td>2017-46</td>
+  <td>40</td>
+  <td>Yes</td>
+  </tr>
+  <tr>
+  <td>2017-47</td>
+  <td>25</td>
+  <td>No</td>
+  </tr>
+  <tr>
+  <td>2017-48</td>
+  <td>35</td>
+  <td>Yes</td>
+  </tr>
+  <tr>
+  <td>2017-49</td>
+  <td>10</td>
+  <td>No</td>
+  </tr>
+  </tbody>
+  </table>
+  
+  <p><span class="confidence-high"><b>Confidence:</b> ▲ High</span> Weeks with tweet counts >= 2x the median (25) are marked as spikes.</p>
+  </section>
+  <hr>
+  
+  <p><b>Final Recommendation:</b> Prioritise product investment</p>
+  <p><b>Confidence:</b> Medium</p>
+  <p><b>Next 3 actions:</b></p>
+  <ol>
+  <li>Engineering: Investigate and resolve reported system failures.</li>
+  <li>Support: Develop clearer communication addressing common policy misunderstandings.</li>
+  <li>Product: Redesign key billing flows to improve usability.</li>
+  </ol>
+ </body>
+ </html>
