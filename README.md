@@ -31,4 +31,10 @@ MonaOps is an AI-driven Product Operations engine that transforms unstructured s
 
 ## 📊 Sample Dashboard
 
-![Dashboard](images/report.png)
+---
+### 📊 Project Dashboard
+<p align="center">
+  <img src="images/report.png" width="800" alt="MonaOps Report">
+</p>
+
+---
