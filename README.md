@@ -12,7 +12,6 @@ MonaOps is an AI-driven Product Operations engine that transforms unstructured s
 - **Big Data Pipeline:** Scans 2.8M rows using Pandas chunking for high-performance memory management.
 - **Deterministic AI:** Leverages **Gemini 2.0 Flash** with `temperature: 0` to ensure objective, repeatable analysis.
 - **Confidence Scoring:** Displays visual confidence indicators (▲) for every metric to guide stakeholder risk assessment.
-- **Resilient Engineering:** Implements automatic exponential backoff to handle API rate limits (429 errors).
 
 ## 📦 Tech Stack
 - **Language:** Python 3.10+
