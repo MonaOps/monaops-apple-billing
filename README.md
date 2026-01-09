@@ -32,9 +32,10 @@ MonaOps is an AI-driven Product Operations engine that transforms unstructured s
 ## 📊 Sample Dashboard
 
 ---
-### 📊 Project Dashboard
-<p align="center">
-  <img src="images/report.png" width="800" alt="MonaOps Report">
-</p>
+
+## 🚀 Interactive AI Dashboard
+You can interact with the live AI-generated billing analysis here:
+
+**[👉 View Live MonaOps Report](https://MonaOps.github.io/monaops-apple-billing/)**
 
 ---
